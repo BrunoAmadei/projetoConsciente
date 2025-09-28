@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Consumo Consciente — Mapa e Eventos</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">CC</div>
+    <div style="flex:1">
+      <h1>Consumo Consciente</h1>
+      <p>Plataforma para mapear pontos de coleta, divulgar eventos e engajar a comunidade em ações sustentáveis.</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- LEFT: mapa -->
+    <section class="panel">
+      <div class="top-controls">
+        <div class="left-controls">
+          <button class="btn" id="locateBtn">📍 Localizar-me</button>
+          <button class="btn ghost" id="refreshEventsBtn">🔁 Atualizar eventos</button>
+        </div>
+        <div class="right-controls">
+          <button class="btn" id="openSuggestBtn">📢 Sugerir Evento</button>
+        </div>
+      </div>
+
+      <div id="map"></div>
+
+      <div class="how-to-use">
+        <div class="card">
+          <strong>Como usar</strong>
+          <p>Explore o mapa, clique em um ponto para ver detalhes e usar rotas. Sugira eventos pela tela de formulário — suas sugestões ficam salvas no navegador.</p>
+        </div>
+        <div class="card center">
+          <strong>ODS</strong>
+          <p>ODS 11 • ODS 12</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: painel lateral -->
+    <aside>
+      <div class="info-card">
+        <h2>Por que isso importa?</h2>
+        <p>Pequenas ações locais — separar resíduos, participar de trocas e mutirões — reduzem o desperdício, protegem recursos naturais e fortalecem a comunidade.</p>
+
+        <div class="tips">
+          <div class="tip"><div class="dot">1</div><div><strong>Planeje</strong><div>Evite compras por impulso.</div></div></div>
+          <div class="tip"><div class="dot">2</div><div><strong>Reutilize</strong><div>Dê nova vida a objetos usados.</div></div></div>
+          <div class="tip"><div class="dot">3</div><div><strong>Participe</strong><div>Sugira e vá aos eventos comunitários.</div></div></div>
+        </div>
+      </div>
+
+      <div class="events">
+        <h3>Próximos eventos</h3>
+        <div id="eventsList">
+          <div class="empty">Carregando eventos...</div>
+        </div>
+      </div>
+
+      <!-- Lista de PEVs -->
+      <div class="pev-list">
+        <h3>Pontos de Coleta Próximos</h3>
+        <ul id="nearbyPointsList">
+          <li class="empty">Clique em "Localizar-me" para ver os PEVs próximos.</li>
+        </ul>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Modal sugerir evento -->
+  <div id="suggestModal" class="modal" aria-hidden="true" role="dialog">
+    <div class="modal-card" role="document">
+      <h3>Sugerir Novo Evento</h3>
+      <div class="form-grid">
+        <div>
+          <label for="evName">Nome do evento</label>
+          <input id="evName" type="text" placeholder="Ex: Mutirão de Reciclagem">
+        </div>
+        <div>
+          <label for="evDate">Data</label>
+          <input id="evDate" type="date">
+        </div>
+        <div class="full">
+          <label for="evPlace">Local</label>
+          <input id="evPlace" type="text" placeholder="Ex: Praça Central">
+        </div>
+        <div class="full">
+          <label for="evDesc">Descrição (opcional)</label>
+          <textarea id="evDesc" placeholder="Detalhes, horários, contato..."></textarea>
+        </div>
+        <div class="modal-actions">
+          <button class="btn secondary" id="cancelSuggest">Cancelar</button>
+          <button class="btn" id="saveSuggest">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Desenvolvido para extensão universitária.</div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
