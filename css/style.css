@@ -56,11 +56,12 @@ main {
   main { grid-template-columns:1fr; }
 }
 .panel, .info-card, .events, .ranking, .points-list {
+  margin-top: 15px;
   background:var(--card);
   border-radius:var(--radius);
   padding:14px;
   box-shadow:var(--shadow);
-}
+  }
 #map { height:520px; border-radius:10px; border:1px solid #e6eef0; margin-top:8px; }
 .controls { display:flex; gap:8px; flex-wrap:wrap; }
 .btn {
@@ -72,6 +73,7 @@ main {
   cursor:pointer;
   font-weight:600;
   transition:transform .16s ease;
+  
 }
 .btn:hover { transform:translateY(-3px); }
 .btn.ghost { background:transparent; color:var(--accent); border:1px solid rgba(47,158,99,0.3); }
